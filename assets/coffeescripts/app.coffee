@@ -1,4 +1,6 @@
+#
 # App.js
+#
 
 jQuery ->
   
@@ -25,7 +27,7 @@ jQuery ->
   #
   # Views
   #
-  
+
   class HighScoreView extends Backbone.View
     el: $ 'body'
 
@@ -33,8 +35,7 @@ jQuery ->
 
     events: 'click button' : 'addScore'
 
-    initialize: ->
-      
+    initialize: ->      
       _.bindAll @
 
       @initializeCounter()
@@ -43,7 +44,7 @@ jQuery ->
       @render()
       
     render: ->
-      $(@el).append @template()
+      @$el.append @template()
 
     initializeCounter: ->
       @counter = 0
@@ -64,7 +65,7 @@ jQuery ->
 
     appendScore: (score) ->
       score_view = new ScoreView model: score
-      $('ul').append score_view.render().el
+      @.$('ul').append score_view.render().el
 
 
 
@@ -92,8 +93,8 @@ jQuery ->
 
     swap: ->
       @model.set
-        name:   @model.get 'score'
-        score:  @model.get 'name'
+        name: @model.get 'score'
+        score: @model.get 'name'
 
     remove: -> 
       @model.destroy()
@@ -114,5 +115,3 @@ jQuery ->
   #
 
   highScoreView = new HighScoreView
-
-

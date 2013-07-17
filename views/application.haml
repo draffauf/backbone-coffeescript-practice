@@ -3,23 +3,12 @@
   %head
     %meta{:'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
     %meta{:name => "lang", :content => "en"}
-
     %title Todo List App
-
     %link{href: '/stylesheets/screen.css', media: "screen", rel: 'stylesheet', type: "text/css"}
-
-    %script{id: 'Score', type: 'text/x-handlebars-template'}
-      <span>{{score.name}} {{score.score}}</span>
-      <span class="swap button">swap</span>
-      <span class="delete button">delete</span>
-      
-    %script{id: 'HighScores', type: 'text/x-handlebars-template'}
-      <button class='btn'>Add High Score</button>
-      <ul></ul>
-      
-      
 
   %body
     = yield
-    
+
+    = partial(:'_templates')
+
     = partial(:'_scripts')

@@ -58,7 +58,7 @@
       };
 
       HighScoreView.prototype.render = function() {
-        return $(this.el).append(this.template());
+        return this.$el.append(this.template());
       };
 
       HighScoreView.prototype.initializeCounter = function() {
@@ -91,7 +91,7 @@
         score_view = new ScoreView({
           model: score
         });
-        return $('ul').append(score_view.render().el);
+        return this.$('ul').append(score_view.render().el);
       };
 
       return HighScoreView;
