@@ -17,44 +17,69 @@
 
     MainView.prototype.template = Handlebars.compile($('#Main').html());
 
-    MainView.prototype.events = {
-      'click button': 'addMenuItem'
-    };
+    MainView.prototype.views = {};
 
     MainView.prototype.initialize = function() {
       _.bindAll(this);
-      this.initializeCounter();
-      this.initializeCollection();
       return this.render();
     };
 
     MainView.prototype.render = function() {
-      return this.$el.append(this.template());
+      this.$el.append(this.template());
+      return this.addMenus();
     };
 
-    MainView.prototype.initializeCounter = function() {
-      return this.counter = 0;
+    MainView.prototype.addMenus = function() {
+      var menu_1, menu_2;
+
+      menu_1 = new ScoreboardApp.Menu([
+        {
+          image_url: "",
+          name: "Profile",
+          url: "/profile"
+        }, {
+          image_url: "",
+          name: "Company",
+          url: "/company"
+        }, {
+          image_url: "",
+          name: "Account",
+          url: "/account"
+        }, {
+          image_url: "",
+          name: "Logout",
+          url: "/logout"
+        }
+      ]);
+      this.addMenu(menu_1);
+      menu_2 = new ScoreboardApp.Menu([
+        {
+          image_url: "",
+          name: "Profile",
+          url: "/profile"
+        }, {
+          image_url: "",
+          name: "Company",
+          url: "/company"
+        }, {
+          image_url: "",
+          name: "Account",
+          url: "/account"
+        }, {
+          image_url: "",
+          name: "Logout",
+          url: "/logout"
+        }
+      ]);
+      return this.addMenu(menu_2);
     };
 
-    MainView.prototype.initializeCollection = function() {
-      this.collection = new ScoreboardApp.Menu;
-      return this.collection.bind('add', this.appendMenuItem);
-    };
+    MainView.prototype.addMenu = function(menu) {
+      var menu_view;
 
-    MainView.prototype.addMenuItem = function() {
-      var menu_item;
-
-      menu_item = new ScoreboardApp.MenuItem;
-      return this.collection.add(menu_item);
-    };
-
-    MainView.prototype.appendMenuItem = function(menu_item) {
-      var menu_item_view;
-
-      menu_item_view = new ScoreboardApp.MenuItemView({
-        model: menu_item
-      });
-      return this.$('ul').append(menu_item_view.render().el);
+      menu_view = new ScoreboardApp.MenuView(menu);
+      this.views << menu_view;
+      return this.$el.append(menu_view.$el);
     };
 
     return MainView;
