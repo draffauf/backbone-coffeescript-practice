@@ -1,8 +1,7 @@
-%script{id: 'Score', type: 'text/x-handlebars-template'}
-  %span {{score.name}} {{score.score}}
-  %a.button.swap{href: '#'} Swap
-  %a.button.delete{href: '#'} Delete
+%script{id: 'MenuItem', type: 'text/x-handlebars-template'}
+  %img{src: '{{menu_item.image_url}}'}
+  %a{href: '{{menu_item.url}}'} {{menu_item.name}}
   
-%script{id: 'HighScores', type: 'text/x-handlebars-template'}
-  %button Add High Score
+%script{id: 'Main', type: 'text/x-handlebars-template'}
+  %button Add Menu Item
   %ul

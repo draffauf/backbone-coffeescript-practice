@@ -5,17 +5,17 @@
 
   window.ScoreboardApp = window.ScoreboardApp || {};
 
-  window.ScoreboardApp.HighScores = (function(_super) {
-    __extends(HighScores, _super);
+  window.ScoreboardApp.Menu = (function(_super) {
+    __extends(Menu, _super);
 
-    function HighScores() {
-      _ref = HighScores.__super__.constructor.apply(this, arguments);
+    function Menu() {
+      _ref = Menu.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    HighScores.prototype.model = ScoreboardApp.Score;
+    Menu.prototype.model = ScoreboardApp.MenuItem;
 
-    return HighScores;
+    return Menu;
 
   })(Backbone.Collection);
 

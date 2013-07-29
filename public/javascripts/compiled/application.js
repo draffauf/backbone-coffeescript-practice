@@ -5,7 +5,6 @@
     };
 
     function ScoreboardApp() {
-      console.log("ScoreboardApp");
       new ScoreboardApp.Router();
       Backbone.history.start();
       Backbone.sync = function(method, model, success, error) {

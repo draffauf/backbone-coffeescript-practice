@@ -5,20 +5,21 @@
 
   window.ScoreboardApp = window.ScoreboardApp || {};
 
-  window.ScoreboardApp.Score = (function(_super) {
-    __extends(Score, _super);
+  window.ScoreboardApp.MenuItem = (function(_super) {
+    __extends(MenuItem, _super);
 
-    function Score() {
-      _ref = Score.__super__.constructor.apply(this, arguments);
+    function MenuItem() {
+      _ref = MenuItem.__super__.constructor.apply(this, arguments);
       return _ref;
     }
 
-    Score.prototype.defaults = {
-      name: 'AAA',
-      score: 100
+    MenuItem.prototype.defaults = {
+      image_url: 'http://www.scoreboardtracking.com/assets/icon.png',
+      name: 'Profile',
+      url: 'https://www.scoreboardtracking.com'
     };
 
-    return Score;
+    return MenuItem;
 
   })(Backbone.Model);
 

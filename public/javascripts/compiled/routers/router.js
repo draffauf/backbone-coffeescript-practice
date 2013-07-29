@@ -18,8 +18,7 @@
     };
 
     Router.prototype.index = function() {
-      console.log("Hola!");
-      return new ScoreboardApp.HighScoreView;
+      return new ScoreboardApp.MainView;
     };
 
     return Router;

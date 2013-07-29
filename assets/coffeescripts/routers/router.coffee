@@ -6,5 +6,4 @@ class window.ScoreboardApp.Router extends Backbone.Router
     "": "index"
 
   index: ->
-    console.log("Hola!")
-    new ScoreboardApp.HighScoreView
+    new ScoreboardApp.MainView
